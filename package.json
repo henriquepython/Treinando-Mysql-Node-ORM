@@ -1,0 +1,12 @@
+{
+  "name": "gama-xp-app",
+  "version": "1.0.0",
+  "description": "Sistema de pedido",
+  "main": "index.js",
+  "repository": "https://github.com/henriquepython/Treinando-Mysql-Node-ORM.git",
+  "author": "JOÃO HENRIQUE BATISTA CERQUEIRA <joaohbp59@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
