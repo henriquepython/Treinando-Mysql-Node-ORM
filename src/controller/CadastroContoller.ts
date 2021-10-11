@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 
+import knex from '../database/connection';
+
 export default {
     async create(req: Request, res: Response) {
         const {nome, cpf} = req.body;
@@ -8,7 +10,7 @@ export default {
         return res.status(201).json({ data:data});
     },
     async list(req: Request, res: Response) {
-        var result = [{id:1, cpf:"09329312058", nome:"JOSE DA SILVA"},{id:1, cpf:"03229352029", nome:"CARLOS BARBOSA"}];
+        var result = await knex('atb_cadastro').orderBy('nome');
         return res.status(200).json({ data:result });
     },
     async update(req: Request, res: Response) {
