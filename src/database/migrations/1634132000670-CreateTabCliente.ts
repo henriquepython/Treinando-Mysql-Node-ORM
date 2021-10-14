@@ -16,7 +16,7 @@ export class createTabCadastro1634042025353 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("tab_cadastro")
+        await queryRunner.dropTable("tab_cliente")
     }
 
 }

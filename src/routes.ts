@@ -1,14 +1,28 @@
 import { Router } from "express";
 
-import CadastroContoller from "./controller/CadastroContoller";
+import CadastroController from "./controller/CadastroController";
+import {ClienteController} from "./controller/ClienteController";
+
+
 
 
 const routes = Router();
 
-routes.post('/cadastro', CadastroContoller.create);
-routes.put('/cadastro/:id', CadastroContoller.update);
-routes.get('/cadastro', CadastroContoller.list);
-routes.get('/cadastro/:id', CadastroContoller.find);
-routes.delete('/cadastro/:id', CadastroContoller.delete);
+routes.post('/cadastro', CadastroController.create);
+routes.put('/cadastro/:id', CadastroController.update);
+routes.get('/cadastro', CadastroController.list);
+routes.get('/cadastro/:id', CadastroController.find);
+routes.delete('/cadastro/:id', CadastroController.delete);
+
+const clienteController = new ClienteController();
+routes.get('/clientes', clienteController.list);
+routes.get('/clientes/:id', clienteController.find);
+routes.get('/clientes/cidades/:nome', clienteController.listCity);
+
+routes.post('/clientes', clienteController.create);
+routes.put('/clientes/:id', clienteController.update);
+routes.delete('/clientes/:id', clienteController.delete);
+routes.post('/clientes/:id/telefones', clienteController.addTel);
+
 
 export default routes; 
