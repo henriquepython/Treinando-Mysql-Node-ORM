@@ -16,6 +16,15 @@ export class ProdutoController {
     async list (req: Request, res:Response) {
         const repository = getCustomRepository(ProdutoRepository);
 
-        const data = await repository.save(produto);
+
+        const data = await repository.find();
+        return res.status(200).json({ data:data });
+    }
+    async find (req: Request, res:Response) {
+        const { id } = req.params;
+        const repository = getCustomRepository(ProdutoRepository);
+
+        const data = await repository.findOne(id);
+        return res.status(200).json ({ data:data });
     }
 }

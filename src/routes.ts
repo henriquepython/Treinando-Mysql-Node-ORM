@@ -2,6 +2,7 @@ import { Router } from "express";
 
 import CadastroController from "./controller/CadastroController";
 import {ClienteController} from "./controller/ClienteController";
+import { ProdutoController } from "./controller/ProdutoController";
 
 
 
@@ -23,6 +24,11 @@ routes.post('/clientes', clienteController.create);
 routes.put('/clientes/:id', clienteController.update);
 routes.delete('/clientes/:id', clienteController.delete);
 routes.post('/clientes/:id/telefones', clienteController.addTel);
+
+const produtoController = new ProdutoController();
+routes.post('/produtos', clienteController.create);
+routes.get('/produtos/', clienteController.list);
+routes.get('/produtos/:id', clienteController.find);
 
 
 export default routes; 
