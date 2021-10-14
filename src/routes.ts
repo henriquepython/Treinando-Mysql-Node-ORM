@@ -2,6 +2,7 @@ import { Router } from "express";
 
 import CadastroController from "./controller/CadastroController";
 import {ClienteController} from "./controller/ClienteController";
+import { PedidoController } from "./controller/PedidoController";
 import { ProdutoController } from "./controller/ProdutoController";
 
 
@@ -26,9 +27,15 @@ routes.delete('/clientes/:id', clienteController.delete);
 routes.post('/clientes/:id/telefones', clienteController.addTel);
 
 const produtoController = new ProdutoController();
-routes.post('/produtos', clienteController.create);
-routes.get('/produtos/', clienteController.list);
-routes.get('/produtos/:id', clienteController.find);
+routes.post('/produtos', produtoController.create);
+routes.get('/produtos', produtoController.list);
+routes.get('/produtos/:id', produtoController.find);
+
+const pedidoController = new PedidoController();
+routes.post('/pedidos', pedidoController.create);
+routes.get('/pedidos', pedidoController.list);
+routes.get('/pedidos/grid/:nome', pedidoController.view);
+routes.get('/pedidos/:id', pedidoController.find);
 
 
 export default routes; 
